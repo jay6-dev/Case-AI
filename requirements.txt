@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+joblib
+scikit-learn
+pandas
+pydantic
+sqlite3
+spacy
+gradio
+requests
+
