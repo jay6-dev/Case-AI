@@ -8,9 +8,8 @@ from sklearn.impute import SimpleImputer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
-# ----------------------------
 # Load Data from SQLite
-# ----------------------------
+
 db_filename = "case_management.db"
 conn = sqlite3.connect(db_filename)
 
@@ -21,10 +20,10 @@ df_assignees = pd.read_sql("SELECT * FROM assignees", conn)
 
 conn.close()
 
-# ----------------------------
+
 # Data Preprocessing
-# ----------------------------
-# Drop non-numeric and unnecessary columns
+
+# unnecessary columns
 df_cases = df_cases.drop(columns=["case_id", "description", "creation_date"], errors="ignore")
 
 # Merge with clients and assignees
@@ -43,10 +42,10 @@ categorical_cols = ["case_type", "status", "priority", "risk_level", "role", "ou
 numerical_cols = ["resolution_time", "age", "previous_cases", "resolved_cases", "pending_cases"]
 
 # One-hot encode categorical variables (final fix)
-encoder = OneHotEncoder(drop="first")  # No more sparse_output issue
+encoder = OneHotEncoder(drop="first")  
 encoded_categorical = pd.DataFrame(encoder.fit_transform(df_imputed[categorical_cols]).toarray(),
                                    columns=encoder.get_feature_names_out(categorical_cols),
-                                   index=df.index)  # Ensure indexing matches
+                                   index=df.index)  
 
 # Standardize numerical features
 scaler = StandardScaler()
@@ -66,9 +65,7 @@ else:
 # Drop target column from features
 X = df_processed.drop(columns=["status_Resolved"], errors="ignore")
 
-# ----------------------------
 # Train Machine Learning Model
-# ----------------------------
 # Split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, target, test_size=0.2, random_state=42)
 
@@ -79,16 +76,12 @@ X_test = X_test.reindex(columns=X_train.columns, fill_value=0)  # Align test col
 model = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)
 model.fit(X_train, y_train)
 
-# ----------------------------
-# Evaluate the Model
-# ----------------------------
+# Model evaluation
 y_pred = model.predict(X_test)
 
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.2f}")
 print("Classification Report:\n", classification_report(y_test, y_pred))
 
-# ----------------------------
-# Save the Model
-# ----------------------------
+# Save the Model 
 joblib.dump(model, "model.pkl")
 print("✅ Model saved as model.pkl")
