@@ -52,10 +52,9 @@ The goal of this project is to:
 - The dataset includes tables for cases, clients, and assignees, with attributes such as case type, priority, risk level, and resolution time.
 
 ---
-
-## **Deployment**
-The chatbot was deployed on **collab using transformers library** using Gradio. You can interact with the chatbot by visiting the following link:
-
+## Tools Used for research
+1. Google
+2 .Chatgpt
 ---
 
 ## **How to Run the Project**
