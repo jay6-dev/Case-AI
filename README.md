@@ -10,6 +10,7 @@ This project involves building a **machine learning model** to predict case outc
 The goal of this project is to:
 1. Build a machine learning model to predict case outcomes based on case management data.
 2. Develop an AI-powered chatbot to provide insights into the case management system.
+3. This approach helps bridge the gap between technical and non-technical users and in a company setting would make collaboration and data extraction easier, creating impact in both product and operations.
 
 ---
 
@@ -43,7 +44,7 @@ The goal of this project is to:
 
 ### **3. Chatbot Development**
 - The chatbot was developed using **Gradio** for the user interface.
-- A smaller model (**DistilGPT-2**) was used for natural language processing to ensure faster responses.
+- A smaller model (**tiny llama**) was used for natural language processing to ensure faster responses.
 - The chatbot can answer questions about case trends, resolution times, and assignee performance.
 
 ### **4. Dataset Generation**
@@ -53,10 +54,7 @@ The goal of this project is to:
 ---
 
 ## **Deployment**
-The chatbot was deployed on **Hugging Face** using Gradio. You can interact with the chatbot by visiting the following link:
-
-**[Hugging Face Space Link](#)**  
-*(joy1515/Case-AI)*
+The chatbot was deployed on **collab using transformers library** using Gradio. You can interact with the chatbot by visiting the following link:
 
 ---
 
