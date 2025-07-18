@@ -243,7 +243,7 @@ Organizations managing high-volume cases face critical operational challenges:
 
 ## 🔗 Live Demo & Resources
 
-- **Interactive Demo:** 
+- **Interactive Demo:** https://colab.research.google.com/drive/1NwKT08cjCJQw-gtJAQjGf3ckxZePZGxW?usp=sharing
 - **Technical Documentation:** Detailed architecture and API specs
 - **Case Studies:** Success stories from pilot implementations
 - **Research Papers:** ML methodology and validation results
